@@ -1,2 +1,2 @@
-# VALinX
-AI Validation Assistant for System Logs
+# valinx-system-anomaly-detection
+System monitoring and anomaly detection pipeline using Isolation Forest, SQLite, RAG, and stress simulation.
