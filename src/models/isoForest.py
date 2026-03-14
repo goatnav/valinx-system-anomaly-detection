@@ -3,7 +3,7 @@ import numpy as np
 from sklearn.ensemble import IsolationForest
 from sklearn.preprocessing import StandardScaler
 
-from sql import insert_anomaly_scores   # 👈 import DB helper
+from storage.sql import insert_anomaly_scores   # 👈 import DB helper
 
 # ===============================
 # Config

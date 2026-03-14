@@ -54,7 +54,8 @@ try:
                 for p in procs
             )
 
-        rows.append({
+            rows.append({
+            "sample_id": len(rows),
             "Time-(numerical)": T,
             "Time-(readable)": datetime.fromtimestamp(T).isoformat(timespec="seconds"),
             "CPU_perc": cpu,
@@ -65,8 +66,7 @@ try:
             "net_sent_MBps": round(net_sent_MBps, 3),
             "net_recv_MBps": round(net_recv_MBps, 3),
             "trigger_ctx": cause
-        })
-
+            })
         if _ % 300 == 0:  # every 5 minutes
             pd.DataFrame(rows).to_csv(filename_long, index=False)
             print(f"💾 Autosaved at {time.ctime(T)}")

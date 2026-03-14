@@ -23,11 +23,11 @@ CREATE TABLE IF NOT EXISTS metrics_raw (
 
 cur.execute("""
 CREATE TABLE IF NOT EXISTS anomaly_scores (
-    sample_id INTEGER PRIMARY KEY,
+    sample_id INTEGER,
     model TEXT,
-
     anomaly_label INTEGER,
-    anomaly_score REAL
+    anomaly_score REAL,
+    PRIMARY KEY (sample_id, model)
 );
 """)
 
