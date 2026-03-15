@@ -1,7 +1,7 @@
 import pandas as pd
+from src.config import DB_PATH, RAW_CSV_PATH
 import sqlite3
 
-DB_PATH = "data/valinx.db"
 
 METRICS_COLS = [
     "sample_id", "ts_unix", "ts_readable",
@@ -11,7 +11,7 @@ METRICS_COLS = [
     "trigger_ctx"
 ]
 
-def insert_raw_metrics(csv_path="data/raw/system_metrics.csv"):
+def insert_raw_metrics(csv_path=RAW_CSV_PATH):
     df = pd.read_csv(csv_path)
 
     df = df.rename(columns={

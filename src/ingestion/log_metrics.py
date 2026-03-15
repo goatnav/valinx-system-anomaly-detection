@@ -1,5 +1,7 @@
 import psutil, time, pandas as pd, os
 from datetime import datetime
+from src.config import RAW_CSV_PATH
+
 
 cpuThreshold = 80  # Thresholds capture obvious anomalies
 memThreshold = 85
@@ -20,7 +22,7 @@ filename_long = os.path.join(base_dir, f"system_metrics_long_{timestamp_str}.csv
 filename_short = os.path.join(base_dir, f"system_metrics_{timestamp_str}.csv")
 
 try:
-    for _ in range( hours):  # runs for 4 hours
+    for _ in range( hours):  # runs for hours
         time.sleep(1)  # wait one second
         T = time.time()
 
@@ -54,7 +56,7 @@ try:
                 for p in procs
             )
 
-            rows.append({
+        rows.append({
             "sample_id": len(rows),
             "Time-(numerical)": T,
             "Time-(readable)": datetime.fromtimestamp(T).isoformat(timespec="seconds"),
@@ -75,7 +77,7 @@ except KeyboardInterrupt:
     print("Stopped manually!")
 
 finally:
-    pd.DataFrame(rows).to_csv("data/raw/system_metrics.csv", index=False)
+    pd.DataFrame(rows).to_csv(RAW_CSV_PATH, index=False)
     print(f"✅ Saved collected data safely to {filename_long}")
 
 print("Finished!")

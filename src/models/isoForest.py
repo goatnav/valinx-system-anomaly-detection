@@ -2,14 +2,16 @@ import pandas as pd
 import numpy as np
 from sklearn.ensemble import IsolationForest
 from sklearn.preprocessing import StandardScaler
+from src.config import CLEANED_CSV_PATH, DEFAULT_MODEL_NAME
+
 
 from storage.sql import insert_anomaly_scores   # 👈 import DB helper
 
 # ===============================
 # Config
 # ===============================
-CLEANED_PATH = "data/cleaned/cleaned.csv"
-MODEL_NAME = "isolation_forest"
+CLEANED_PATH = CLEANED_CSV_PATH
+MODEL_NAME = DEFAULT_MODEL_NAME
 
 # ===============================
 # Load cleaned data

@@ -1,7 +1,9 @@
 import sqlite3
+from src.config import DB_PATH
 
-conn = sqlite3.connect("data/valinx.db")
+conn = sqlite3.connect(DB_PATH)
 cur = conn.cursor()
+
 
 cur.execute("""
 CREATE TABLE IF NOT EXISTS metrics_raw (

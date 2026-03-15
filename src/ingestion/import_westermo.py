@@ -2,6 +2,8 @@ import argparse
 import pandas as pd
 from pathlib import Path
 from datetime import datetime, timezone
+from src.config import RAW_CSV_PATH
+
 
 VALINX_COLS = [
     "sample_id",
@@ -90,6 +92,6 @@ def main(in_path: str, out_path: str):
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--in", dest="inp", required=True, help="Path to a Westermo CSV")
-    ap.add_argument("--out", dest="out", default="data/raw/system_metrics.csv", help="Output CSV path")
+    ap.add_argument("--out", dest="out", default=RAW_CSV_PATH, help="Output CSV path")
     args = ap.parse_args()
     main(args.inp, args.out)

@@ -1,9 +1,11 @@
 import os
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
+from src.config import RAW_CSV_PATH, CLEANED_CSV_PATH
 
-RAW_PATH = "data/raw/system_metrics.csv"
-OUT_PATH = "data/cleaned/cleaned.csv"
+
+RAW_PATH = RAW_CSV_PATH
+OUT_PATH = CLEANED_CSV_PATH
 
 df = pd.read_csv(RAW_PATH)
 
